@@ -1,0 +1,7 @@
+{
+  "name": "ContigoSiempre",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

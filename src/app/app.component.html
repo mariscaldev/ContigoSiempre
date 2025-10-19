@@ -1,0 +1,22 @@
+<ion-app>
+  <header class="navbar">
+    <div class="logo">LOGO</div>
+
+    <!-- Botón hamburguesa (solo visible en móviles) -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    <!-- Navegación -->
+    <nav class="nav-links" [class.open]="menuOpen">
+      <a routerLink="/inicio" routerLinkActive="active" (click)="closeMenu()">Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="active" (click)="closeMenu()">Servicios</a>
+      <a routerLink="/quienes-somos" routerLinkActive="active" (click)="closeMenu()">Quiénes Somos</a>
+      <a routerLink="/contacto" routerLinkActive="active" (click)="closeMenu()">Contacto</a>
+    </nav>
+  </header>
+
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+</ion-app>
