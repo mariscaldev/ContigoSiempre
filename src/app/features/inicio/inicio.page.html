@@ -1,3 +1,81 @@
-<ion-content [fullscreen]="true">
-  <h1>Inicio</h1>
+<ion-content [fullscreen]="true" class="carousel-container">
+  <div class="carousel-wrapper">
+    <!-- Botón anterior -->
+    <button class="nav-btn prev" (click)="prevSlide()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+
+    <!-- Slides -->
+    <div
+      class="carousel-slide"
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="i === currentSlide"
+      [style.backgroundImage]="'url(' + slide.image + ')'"
+    >
+      <div class="overlay"></div>
+
+      <div class="slide-content">
+        <h3>{{ slide.subtitle }}</h3>
+        <h1>{{ slide.title }}</h1>
+        <p>{{ slide.description }}</p>
+        <ion-button shape="round" color="success" fill="solid" size="large">
+          Más Información
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Botón siguiente -->
+    <button class="nav-btn next" (click)="nextSlide()">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Mensaje debajo del carrusel -->
+  <p class="ion-text-center mensaje">
+    Contamos con personal capacitado profesionalmente para el cuidado de
+    nuestros adultos mayores!
+  </p>
+
+  <!-- Sección Presentación -->
+  <ion-grid class="presentacion-grid">
+    <ion-row class="presentacion-row">
+      <!-- Imagen -->
+      <ion-col size-md="6" size="12" class="presentacion-imagen">
+        <div class="imagen-wrapper">
+          <img
+            src="assets/images/presentacion.png"
+            alt="Atención personalizada"
+          />
+          <div class="experiencia-card">
+            <h2>15</h2>
+            <p>Años de Experiencia</p>
+          </div>
+        </div>
+      </ion-col>
+
+      <!-- Texto -->
+      <ion-col size-md="6" size="12" class="presentacion-texto">
+        <h2>Atención personalizada.</h2>
+        <p>
+          Nuestro objetivo principal es otorgar bienestar, cubriendo todas las
+          necesidades que debe ofrecer una residencia para adultos mayores.
+          Supervisamos las 24 horas del día, con la atención oportuna y cordial
+          de una cuidadora asignada. Además, realizamos actividades recreativas
+          grupales y terapias individuales.
+        </p>
+
+        <div class="detalle">
+          <ion-icon name="document-text-outline"></ion-icon>
+          <span>
+            <b>Evaluación Geriátrica integral</b> realizada por profesionales de
+            la salud.
+          </span>
+        </div>
+
+        <ion-button shape="round" color="success" fill="solid" size="large">
+          Más Información
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

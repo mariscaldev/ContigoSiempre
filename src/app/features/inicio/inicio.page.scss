@@ -1,0 +1,277 @@
+.carousel-container {
+    --background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 85%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1s ease, transform 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    color: #fff;
+    max-width: 650px;
+    padding: 2rem;
+    margin-left: 5%;
+}
+
+.slide-content h3 {
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.slide-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.slide-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+ion-button {
+    --background: #49b379;
+    --border-radius: 30px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: background 0.3s ease;
+    z-index: 3;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-btn.prev {
+    left: 10px;
+}
+
+.nav-btn.next {
+    right: 10px;
+}
+
+.mensaje {
+    font-size: x-large;
+    color: #333;
+    font-weight: 500;
+    margin-top: 1rem;
+    padding: 1.5rem 0 0 0;
+}
+
+/* ---------- SECCIÓN PRESENTACIÓN ---------- */
+.presentacion-grid {
+    padding: 0 2rem 1rem 2rem;
+}
+
+.presentacion-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presentacion-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-wrapper {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+}
+
+.imagen-wrapper img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.experiencia-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #49b379;
+    color: white;
+    border-radius: 10px;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.experiencia-card h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.experiencia-card p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Texto */
+.presentacion-texto {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.presentacion-texto h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #1b263b;
+    margin-bottom: 1rem;
+}
+
+.presentacion-texto p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detalle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #222;
+}
+
+.detalle ion-icon {
+    color: #49b379;
+    font-size: 1.5rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+    .presentacion-texto {
+        text-align: center;
+    }
+
+    .presentacion-texto h2 {
+        font-size: 1.7rem;
+    }
+
+    .presentacion-row {
+        flex-direction: column;
+    }
+
+    .imagen-wrapper {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .presentacion-texto h2 {
+        font-size: 1.4rem;
+    }
+
+    .presentacion-texto p {
+        font-size: 0.9rem;
+    }
+
+    .experiencia-card {
+        bottom: 10px;
+        left: 10px;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .experiencia-card h2 {
+        font-size: 1.4rem;
+    }
+
+    .experiencia-card p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-content {
+        text-align: center;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .slide-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-content h1 {
+        font-size: 1.2rem;
+    }
+
+    .slide-content p {
+        font-size: 0.85rem;
+    }
+
+    p {
+        font-size: large;
+    }
+}

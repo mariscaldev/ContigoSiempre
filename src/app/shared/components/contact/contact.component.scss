@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    text-align: center;
+    min-width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ion-color-success);
+
+    p {
+        width: 33vw;
+    }
+}
