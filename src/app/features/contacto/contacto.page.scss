@@ -1,146 +1,165 @@
 ion-content {
-  --background: linear-gradient(135deg, #e0ecff, #f5f7fa);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* permite desplazamiento vertical */
-  min-height: 100vh;
-  overflow-y: auto; /* habilita scroll */
+  --background: linear-gradient(135deg, #f5f7fa, #e8effa);
+  height: 100%;
+  overflow-y: auto;
 }
 
-/* Contenedor general */
-.contact-container {
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.contact-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 5rem;
-  margin: auto;
+  justify-content: center;
+  align-items: stretch;
   width: 100%;
   max-width: 1200px;
   padding: 2rem;
-  animation: fadeIn 0.8s ease;
+  gap: 2rem;
   box-sizing: border-box;
+  animation: fadeIn 0.7s ease-in-out;
 }
 
-/* ===== FORMULARIO ===== */
-.contact-form {
+/* ===== TARJETA DE FORMULARIO ===== */
+.contact-card {
   flex: 1 1 450px;
-  background: #ffffff;
-  border-radius: 25px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  padding: 2.5rem;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form:hover {
+.contact-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form h2 {
-  font-size: 1.6rem;
-  color: #222;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.contact-form p {
+.contact-header {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #666;
-  font-size: 0.95rem;
 }
 
-/* Inputs con estilo moderno */
+.contact-header h2 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.contact-header p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* ===== FORMULARIO ===== */
 ion-item {
   --background: transparent;
-  --highlight-color-focused: #0077ff;
-  --border-color: #ddd;
-  --border-radius: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  --border-color: #d1d5db;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
 }
 
 ion-item:focus-within {
-  border-color: #0077ff;
-  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.1);
+  border-color: var(--ion-color-success);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 ion-label {
-  color: #555;
+  color: #374151;
   font-weight: 500;
 }
 
 ion-input,
 ion-textarea {
-  color: #222;
+  color: #111827;
   font-size: 0.95rem;
 }
 
-/* Botón con degradado */
+/* ===== BOTÓN ===== */
 .btn-enviar {
   margin-top: 1rem;
-  background: linear-gradient(135deg, #0077ff, #00b4d8);
+  --background: var(--ion-color-success);
   border-radius: 50px;
   font-weight: 600;
   color: #fff;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0, 119, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   transition: all 0.3s ease;
 }
 
 .btn-enviar:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 16px rgba(0, 119, 255, 0.35);
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
 }
 
 /* ===== MAPA ===== */
-.contact-map {
+.map-container {
   flex: 1 1 450px;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  //background: #fff;
+  //box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  background: #fff;
 }
 
-.contact-map iframe {
+.map-container iframe {
   width: 100%;
-  height: 100%;
-  border: 0;
+  min-height: 450px;
+  border: none;
+  border-radius: 20px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  ion-content {
-    align-items: flex-start; /* permite desplazamiento completo en móvil */
-  }
-
-  .contact-container {
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .contact-wrapper {
     flex-direction: column;
     padding: 1.5rem;
   }
 
-  .contact-form,
-  .contact-map {
+  .contact-card,
+  .map-container {
     flex: 1 1 100%;
     width: 100%;
-    max-width: 100%;
   }
 
-  .contact-map {
-    height: 350px;
+  .map-container {
+    margin: 0 0 10px 0!important;
+  }
+
+  .map-container iframe {
+    min-height: 350px;
   }
 }
 
-/* Animación suave */
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .contact-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .contact-header p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== ANIMACIÓN ===== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
